@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:loginsi2v2/components/componets.dart';
+import 'package:loginsi2v2/screens/login/register_screen.dart';
 import 'package:loginsi2v2/screens/screens.dart';
 import 'package:loginsi2v2/services/auth/auth_service.dart';
 import 'package:provider/provider.dart';
@@ -41,7 +42,7 @@ class MyApp extends StatelessWidget {
         '/': ( _ ) => const HomeScreen(),
         'splash': ( _ ) => const SplashScreen(),
         'login': ( _ ) => const LoginScreen(),
-
+        'register': ( _ ) => const RegisterSreen(),
       },
       theme: ThemeData.light().copyWith(
         scaffoldBackgroundColor: Colors.grey[100],

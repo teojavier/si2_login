@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:loginsi2v2/screens/login/login_screen.dart';
+import 'package:loginsi2v2/screens/login/register_screen.dart';
 import 'package:loginsi2v2/services/auth/auth_service.dart';
 import 'package:provider/provider.dart';
 
@@ -21,6 +22,16 @@ class SideBar extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                           builder: (context) => const LoginScreen()));
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.recycling_sharp),
+                title: const Text('Registrar'),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const RegisterSreen()));
                 },
               ),
             ],

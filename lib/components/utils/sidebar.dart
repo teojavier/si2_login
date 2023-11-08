@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:loginsi2v2/screens/login/login_screen.dart';
 import 'package:loginsi2v2/screens/login/register_screen.dart';
+import 'package:loginsi2v2/screens/screens.dart';
 import 'package:loginsi2v2/services/auth/auth_service.dart';
 import 'package:provider/provider.dart';
 
@@ -34,6 +35,16 @@ class SideBar extends StatelessWidget {
                           builder: (context) => const RegisterSreen()));
                 },
               ),
+               ListTile(
+                leading: const Icon(Icons.play_arrow),
+                title: const Text('Fomulario'),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const CreateAssistanceScreen()));
+                },
+              ),
             ],
           );
         } else {
@@ -56,6 +67,16 @@ class SideBar extends StatelessWidget {
                     image: DecorationImage(
                         image: AssetImage('assets/utils/sidebar_fondo.jpg'),
                         fit: BoxFit.cover)),
+              ),
+              ListTile(
+                leading: const Icon(Icons.request_page_sharp),
+                title: const Text('Solicitudes de Asistencia'),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const AssistanceRequestScreen()));
+                },
               ),
               ListTile(
                 leading: const Icon(Icons.shop),

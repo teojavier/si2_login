@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:loginsi2v2/components/componets.dart';
 import 'package:loginsi2v2/screens/login/register_screen.dart';
 import 'package:loginsi2v2/screens/screens.dart';
+import 'package:loginsi2v2/services/api/assistance_request_service.dart';
+import 'package:loginsi2v2/services/api/vehicle_service.dart';
 import 'package:loginsi2v2/services/auth/auth_service.dart';
 import 'package:provider/provider.dart';
 
@@ -23,7 +25,9 @@ class _AppStateState extends State<AppState> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: ( _ ) => AuthService())
+        ChangeNotifierProvider(create: ( _ ) => AuthService()),
+        ChangeNotifierProvider(create: ( _ ) => AssistanceRequestService()),
+        ChangeNotifierProvider(create: ( _ ) => VehicleService()),
       ],
       child: const MyApp(),
     );

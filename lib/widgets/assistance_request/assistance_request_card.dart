@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:latlong2/latlong.dart';
 import 'package:loginsi2v2/models/models.dart';
+import 'package:loginsi2v2/screens/assistance_request/map_screen.dart';
+import 'package:loginsi2v2/screens/assistance_request/show_assistance_screen.dart';
 
 class AssistanceRequestCard extends StatelessWidget {
   final AssistanceRequest solicitud;
@@ -14,7 +17,7 @@ class AssistanceRequestCard extends StatelessWidget {
         margin:
             const EdgeInsets.only(top: 10, bottom: 20), //es solo para el card
         width: double.infinity,
-        height: 160,
+        height: 260,
         decoration: _carBorders(),
         child: Column(
           children: [
@@ -45,7 +48,7 @@ class _AssistanceRequestDetail extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         width: double.infinity,
-        height: 150,
+        height: 250,
         decoration: _buildBoxDecoration(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -104,6 +107,26 @@ class _AssistanceRequestDetail extends StatelessWidget {
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
             ),
+            ElevatedButton(
+                onPressed: () {
+                  if (solicitud.latitud != null && solicitud.longitud != null) {
+                    LatLng placePosition = LatLng(
+                        double.parse(solicitud.latitud),
+                        double.parse(solicitud.longitud));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => MapScreen(placePosition: placePosition)));
+                  }
+                },
+                child: const Text('Ver mapa')),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              ShowAssistanceScreen(solicitud: solicitud)));
+                },
+                child: const Text('Ver Solicitud')),
           ],
         ),
       ),
